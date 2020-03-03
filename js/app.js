@@ -1,6 +1,9 @@
 const app = {
 
     todo: null, //cible dans le dom
+    count: 0,
+    todo: null,
+
 
     init: function() {
         // vérification branchement js
@@ -33,6 +36,12 @@ const app = {
 
         // vider le champ
         formInput.value = '';
+
+        // Maj du compteur :
+        app.count++;
+        app.updateCounter();
+        console.log(app.count);
+
     }, 
 
     createForm: function() {
@@ -56,6 +65,11 @@ const app = {
         app.todo.appendChild(form);
     },
 
+    updateCounter: function() {
+        const counter = document.getElementById('todo-counter');
+        counter.textContent = `${app.count} tâche(s) en cours`;
+    },
+
     createCounter: function() {
         console.log('app : createCounter');
 
@@ -64,7 +78,7 @@ const app = {
         counter.id = 'todo-counter';
 
         // Préparer le contenu
-        counter.textContent = '2 tâche(s) en cours';
+        counter.textContent = `${app.count} tâche(s) en cours`;
 
         // ajout du compteur au dom
         app.todo.appendChild(counter);
@@ -78,17 +92,6 @@ const app = {
 
         // je stock dans tout mon app mon élément list
         app.list = list;
-
-        // Génération des tâches 
-        app.generateTask({
-            label: 'Coder une todolist en JS',
-            done: false,
-        });
-
-        app.generateTask({
-            label: 'Coder un site en PHP',
-            done: true,
-        });
 
         // Ajout au DOM
         app.todo.appendChild(list);
