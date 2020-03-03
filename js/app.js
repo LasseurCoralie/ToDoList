@@ -52,7 +52,47 @@ const app = {
 
     createList: function() {
         console.log('app : createList');
+
+        const list = document.createElement('ul');
+        list.id = 'tasks-list';
+
+        // je stock dans tout mon app mon élément list
+        app.list = list;
+
+        // Génération des tâches 
+        app.generateTask({
+            label: 'Coder une todolist en JS',
+            done: false,
+        });
+
+        app.generateTask({
+            label: 'Coder un site en PHP',
+            done: true,
+        });
+
+        // Ajout au DOM
+        app.todo.appendChild(list);
     },
+
+    generateTask: function (data) {
+        const task = document.createElement('li');
+        task.className = 'task';
+
+        // ajout d'un checkbox
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = data.done;
+
+        const label = document.createElement('span')
+        label.className = 'task-label';
+        label.textContent = data.label;
+
+        // ajouter checkbox et span au li
+        task.appendChild(checkbox);
+        task.appendChild(label);
+
+        app.list.appendChild(task);
+    }
 };
 
 // Chargement du DOM
