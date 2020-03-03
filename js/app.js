@@ -1,4 +1,7 @@
 const app = {
+
+    todo: null, //cible dans le dom
+
     init: function() {
         // vérification branchement js
         console.log('init');
@@ -35,6 +38,16 @@ const app = {
 
     createCounter: function() {
         console.log('app : createCounter');
+
+        // ajout d'un div
+        const counter = document.createElement('div');
+        counter.id = 'todo-counter';
+
+        // Préparer le contenu
+        counter.textContent = '2 tâche(s) en cours';
+
+        // ajout du compteur au dom
+        app.todo.appendChild(counter);
     },
 
     createList: function() {

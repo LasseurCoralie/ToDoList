@@ -9,21 +9,30 @@ body{
 
 #todo-input {
     background-color: #1c382f;
-      border: 1px solid #183129;
-      box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.1) ;
-      width: 100%;
-      height: 70px;
-      padding: .8em 1em;
-      font-size: 2em;
-      color: #fff;
-      transition: .4s;
-  }
-  
-   #todo-input:focus {
-    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.5);
+    border: 1px solid #183129;
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.1) ;
+    width: 100%;
+    height: 70px;
+    padding: .8em 1em;
+    font-size: 2em;
+    color: #fff;
     transition: .4s;
   }
   
-   #todo-input::placeholder {
+#todo-input:focus {
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.5);
+    transition: .4s;
+}
+
+#todo-input::placeholder {
     color: rgba(255, 255, 255, .5);
-  }
+}
+
+#todo-counter {
+    color: #fff;
+    font-size: 1.6em;
+    font-weight: 700;
+    border-bottom: 1px solid #fff;
+    margin: 1.5em 0 1em;
+    padding-bottom: .5em;
+}
