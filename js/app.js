@@ -78,6 +78,11 @@ const app = {
         const task = document.createElement('li');
         task.className = 'task';
 
+        // condition affichage tache done
+        if (data.done){
+            task.classList.add('task-label--done');
+        }
+
         // ajout d'un checkbox
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
