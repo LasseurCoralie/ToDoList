@@ -111,6 +111,21 @@ const app = {
         checkbox.type = 'checkbox';
         checkbox.checked = data.done;
 
+        // écoute changement d'état checkbox
+        checkbox.addEventListener('change', function () {
+            // changement de class (toggle)
+            task.classList.toggle('task-label--done');
+
+            if (checkbox.checked) {
+                app.count--;
+            } else {
+                app.count++;
+            }
+
+            // maj compteur sur dom
+            app.updateCounter();
+        })
+
         const label = document.createElement('span')
         label.className = 'task-label';
         label.textContent = data.label;
